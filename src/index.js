@@ -5,7 +5,18 @@ const app = {
     subTitle: 'Put your life in the hands of a computer',
     options: ['one', 'two', 'three']
 }
-// JSX - JavaScript XML
+
+const onFormSubmit = (e) => {
+    e.preventDefault()
+    
+    const option = e.target.elements.option.value
+    
+    if (option) {
+        app.options.push(option)
+        e.target.elements.option.value = ''
+        renderIndecisionApp()
+    }
+}
 
 const appRoot = document.getElementById('app')
 
@@ -15,11 +26,12 @@ const renderIndecisionApp = () => {
             <h1>{app.title}</h1>
             {app.subTitle && <p>{app.subTitle}</p>}
             {app.options.length > 0 ? <p>Here are your options:</p> : <p>No options</p>}
+            <p>{app.options.length}</p>
             <ol>
                 <li>Item one</li>
                 <li>Item two</li>
             </ol>
-            <form>
+            <form onSubmit={onFormSubmit}>
                 <input type='text' name='option'/>
                 <button>Add Option</button>
             </form>
