@@ -6,19 +6,25 @@ const app = {
     options: ['one', 'two', 'three']
 }
 // JSX - JavaScript XML
- const template = (
-    <div>
-        <h1>{app.title}</h1>
-        {app.subTitle && <p>{app.subTitle}</p>}
-        {app.options.length > 0 ? app.options.map((option) => {
-           return <p>{option}</p>
-        }) : <p>No options</p>}
-        <ol>
-            <li>Item one</li>
-            <li>Item two</li>
-        </ol>
-    </div>
-);
+
 const appRoot = document.getElementById('app')
 
-ReactDOM.render(template, appRoot)
+const renderIndecisionApp = () => {
+    const template = (
+        <div>
+            <h1>{app.title}</h1>
+            {app.subTitle && <p>{app.subTitle}</p>}
+            {app.options.length > 0 ? app.options.map((option) => {
+               return <p>{option}</p>
+            }) : <p>No options</p>}
+            <ol>
+                <li>Item one</li>
+                <li>Item two</li>
+            </ol>
+        </div>
+    );
+
+    ReactDOM.render(template, appRoot);
+}
+
+renderIndecisionApp();
