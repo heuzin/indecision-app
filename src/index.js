@@ -14,13 +14,15 @@ const renderIndecisionApp = () => {
         <div>
             <h1>{app.title}</h1>
             {app.subTitle && <p>{app.subTitle}</p>}
-            {app.options.length > 0 ? app.options.map((option) => {
-               return <p>{option}</p>
-            }) : <p>No options</p>}
+            {app.options.length > 0 ? <p>Here are your options:</p> : <p>No options</p>}
             <ol>
                 <li>Item one</li>
                 <li>Item two</li>
             </ol>
+            <form>
+                <input type='text' name='option'/>
+                <button>Add Option</button>
+            </form>
         </div>
     );
 
