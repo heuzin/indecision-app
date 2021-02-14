@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 
-const header = {
+const app = {
     title: 'Indecision App',
     subTitle: 'Put your life in the hands of a computer',
     options: ['one', 'two', 'three']
@@ -8,9 +8,9 @@ const header = {
 // JSX - JavaScript XML
  const template = (
     <div>
-        <h1>{header.title}</h1>
-        {header.subTitle && <p>{header.subTitle}</p>}
-        {header.options.length > 0 ? header.options.map((option) => {
+        <h1>{app.title}</h1>
+        {app.subTitle && <p>{app.subTitle}</p>}
+        {app.options.length > 0 ? app.options.map((option) => {
            return <p>{option}</p>
         }) : <p>No options</p>}
         <ol>
