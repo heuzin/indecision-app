@@ -1,9 +1,16 @@
 import ReactDOM from 'react-dom';
 
-console.log('app')
 // JSX - JavaScript XML
+ const template = (
+    <div>
+        <h1>Indecision App</h1>
+        <p>This is some info</p>
+        <ol>
+            <li>Item one</li>
+            <li>Item two</li>
+        </ol>
+    </div>
+);
+const appRoot = document.getElementById('app')
 
- const template = <p>This is JSX from app.js</p>
- const appRoot = document.getElementById('app')
-
- ReactDOM.render(template, appRoot)
+ReactDOM.render(template, appRoot)
