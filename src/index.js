@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 const app = {
     title: 'Indecision App',
     subTitle: 'Put your life in the hands of a computer',
-    options: ['one', 'two', 'three']
+    options: ['one', 'two', 'three',' four']
 }
 
 const onFormSubmit = (e) => {
@@ -34,8 +34,9 @@ const renderIndecisionApp = () => {
             <p>{app.options.length}</p>
             <button onClick={onRemoveAll}>Remove All</button>
             <ol>
-                <li>Item one</li>
-                <li>Item two</li>
+                {app.options.map((option, i) => {
+                    return <li key={option[i]}>{option}</li>
+                })}
             </ol>
             <form onSubmit={onFormSubmit}>
                 <input type='text' name='option'/>
