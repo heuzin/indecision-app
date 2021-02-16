@@ -24,13 +24,21 @@ class Action extends React.Component {
 
 class Options extends React.Component {
     render() {
-        return <p>This is the options component</p>
+        return (
+            <div>
+                <p>This is the options component</p>
+            </div>
+        ) 
     }
 }
 
 class AddOption extends React.Component {
     render() {
-        return <p>This is the add options component</p>
+        return (
+            <div>
+                <p>This is the add options component</p>
+            </div>
+        ) 
     }
 }
 
