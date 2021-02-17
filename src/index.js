@@ -4,9 +4,17 @@ import ReactDOM from 'react-dom';
 class IndecisionApp extends React.Component {
     constructor(props) {
         super(props)
+        this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
         this.state = {
             options: ['thing one' , 'thing two', 'thing four']
         }
+    }
+    handleDeleteOptions() {
+        this.setState(() => {
+            return {
+                options: []
+            }
+        })
     }
     render() {
         const title = 'Indecision'
@@ -16,7 +24,10 @@ class IndecisionApp extends React.Component {
             <div>
                 <Header title={title} subtitle={subtitle} />
                 <Action hasOptions={this.state.options.length > 0} />
-                <Options options={this.state.options} />
+                <Options 
+                    options={this.state.options} 
+                    handleDeleteOptions={this.handleDeleteOptions}
+                />
                 <AddOption />
             </div>
         )
@@ -53,17 +64,10 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleRemoveAll = this.handleRemoveAll.bind(this)
-    }
-    handleRemoveAll() {
-        console.log(this.props.options)
-    }
     render() {
         return (
             <div>
-                <button onClick={this.handleRemoveAll}>Remove all</button>
+                <button onClick={this.props.handleDeleteOptions}>Remove all</button>
                 {
                     this.props.options.map((option, i) => <Option key={i} optionText={option} />)
                 }
