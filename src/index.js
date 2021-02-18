@@ -31,9 +31,7 @@ class IndecisionApp extends React.Component {
         }
     }
     handleDeleteOptions() {
-        this.setState(() => ({
-            options: []
-        }))
+        this.setState(() => ({ options: [] }))
     }
     handleDeleteOption(optionToDelete) {
         this.setState((prevState) => ({
@@ -101,19 +99,29 @@ const Action = (props) => (
 
 const Options = (props) => (
     <div>
-    <button onClick={props.handleDeleteOptions}>Remove all</button>
+        <button onClick={props.handleDeleteOptions}>Remove all</button>
     {
-        props.options.map((option, i) => <Option handleDeleteOption={props.handleDeleteOption} key={i} optionText={option} />)
+        props.options.map((option, i) =>   
+            <Option    
+                key={i} 
+                optionText={option} 
+                handleDeleteOption={props.handleDeleteOption} 
+            />
+        )
     }
     </div>
 )
 
 const Option = (props) => (
     <div>
-        <p>Option: {props.optionText}</p>
-        <button onClick={(() => {
+        {props.optionText}
+        <button 
+            onClick={() => {
             props.handleDeleteOption(props.optionText)
-        })}>Delete</button>
+        }}
+        >
+            Delete
+        </button>
     </div>
 )
 
@@ -131,9 +139,11 @@ class AddOption extends React.Component {
         const option = e.target.elements.option.value.trim()
         const error = this.props.handleAddOption(option)
         
-        this.setState(() => ({
-            error
-        }))
+        this.setState(() => ({ error }))
+
+        if (!error) {
+            e.target.elements.option.value = ''
+        }
     }
     render() {
         return (
