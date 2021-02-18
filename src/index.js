@@ -100,15 +100,16 @@ const Action = (props) => (
 const Options = (props) => (
     <div>
         <button onClick={props.handleDeleteOptions}>Remove all</button>
-    {
-        props.options.map((option, i) =>   
-            <Option    
-                key={i} 
-                optionText={option} 
-                handleDeleteOption={props.handleDeleteOption} 
-            />
-        )
-    }
+        {props.options.length === 0 && <p>Please add an option to get started!</p>}
+        {
+            props.options.map((option, i) =>   
+                <Option    
+                    key={i} 
+                    optionText={option} 
+                    handleDeleteOption={props.handleDeleteOption} 
+                />
+            )
+        }
     </div>
 )
 
