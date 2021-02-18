@@ -5,6 +5,7 @@ class IndecisionApp extends React.Component {
     constructor(props) {
         super(props)
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
+        this.handleDeleteOption = this.handleDeleteOption.bind(this)
         this.handlePick = this.handlePick.bind(this)
         this.handleAddOption = this.handleAddOption.bind(this)
         this.state = {
@@ -15,6 +16,9 @@ class IndecisionApp extends React.Component {
         this.setState(() => ({
             options: []
         }))
+    }
+    handleDeleteOption(option) {
+        console.log(option)
     }
     handlePick() {
         const randomNum = Math.floor(Math.random() * this.state.options.length);
@@ -45,6 +49,7 @@ class IndecisionApp extends React.Component {
                 />
                 <Options 
                     options={this.state.options} 
+                    handleDeleteOption={this.handleDeleteOption}
                     handleDeleteOptions={this.handleDeleteOptions}
                 />
                 <AddOption 
@@ -73,22 +78,22 @@ const Action = (props) => (
     </div>
 )
 
-class Options extends React.Component {
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.handleDeleteOptions}>Remove all</button>
-                {
-                    this.props.options.map((option, i) => <Option key={i} optionText={option} />)
-                }
-            </div>
-        ) 
+
+const Options = (props) => (
+    <div>
+    <button onClick={props.handleDeleteOptions}>Remove all</button>
+    {
+        props.options.map((option, i) => <Option handleDeleteOption={props.handleDeleteOption} key={i} optionText={option} />)
     }
-}
+    </div>
+)
 
 const Option = (props) => (
     <div>
-        Option: {props.optionText}
+        <p>Option: {props.optionText}</p>
+        <button onClick={(() => {
+            props.handleDeleteOption(props.optionText)
+        })}>Delete</button>
     </div>
 )
 
