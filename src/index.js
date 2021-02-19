@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import AddOption from './components/AddOption'
+import AddOption from './components/AddOption';
+import Option from './components/Option';
 
 class IndecisionApp extends React.Component {
     constructor(props) {
@@ -111,19 +112,6 @@ const Options = (props) => (
                 />
             )
         }
-    </div>
-)
-
-const Option = (props) => (
-    <div>
-        {props.optionText}
-        <button 
-            onClick={() => {
-            props.handleDeleteOption(props.optionText)
-        }}
-        >
-            Delete
-        </button>
     </div>
 )
 
