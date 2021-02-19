@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
+import Action from './components/Action'
 import AddOption from './components/AddOption';
 import Option from './components/Option';
 import Header from './components/Header'
@@ -80,18 +81,6 @@ class IndecisionApp extends React.Component {
         )
     }
 }
-
-const Action = (props) => (
-    <div>
-        <button 
-            onClick={props.handlePick}
-            disabled={!props.hasOptions}
-        >
-            What Should I Do?
-        </button>
-    </div>
-)
-
 
 const Options = (props) => (
     <div>
