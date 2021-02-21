@@ -13,6 +13,9 @@ export default class IndecisionApp extends React.Component {
     handleDeleteOptions = () => {
         this.setState(() => ({ options: [] }))
     }
+    handleClearSelectedOption = () => {
+        this.setState(() =>({ selectedOption: undefined }))
+    }
     handleDeleteOption = (optionToDelete) => {
         this.setState((prevState) => ({
             options: prevState.options.filter((option) => optionToDelete !== option)
@@ -75,6 +78,7 @@ export default class IndecisionApp extends React.Component {
                 />
                 <OptionModal
                     selectedOption={this.state.selectedOption}
+                    handleClearSelectedOption={this.handleClearSelectedOption}
                 />
             </div>
         )
