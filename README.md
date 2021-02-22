@@ -20,7 +20,7 @@ $ npm install # or yarn
 
 Run it
 ```bash
-$ npm run dev-server
+$ npm start
 ```
 
 
